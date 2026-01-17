@@ -337,10 +337,11 @@ header {
 }
 
 .badge-item span {
-    font-weight: 700;
-    font-size: 1.1rem;
+    font-weight: 500;
+    font-size: 1rem;
     color: var(--color-text);
-    font-family: var(--font-heading);
+    font-family: var(--font-body);
+    letter-spacing: 0.3px;
 }
 
 /* --- Products --- */
