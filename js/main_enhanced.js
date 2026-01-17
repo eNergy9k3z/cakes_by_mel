@@ -1,10 +1,30 @@
 // Shopping Cart System
 let cart = JSON.parse(localStorage.getItem('cakesbymel_cart')) || [];
 
-// Initialize cart on page load
+// Initialize on page load
 document.addEventListener('DOMContentLoaded', function () {
     updateCart();
+    initHeroSlideshow();
 });
+
+// Hero Slideshow
+function initHeroSlideshow() {
+    const slides = document.querySelectorAll('.hero-slide');
+    if (slides.length === 0) return;
+
+    let currentSlide = 0;
+    const totalSlides = slides.length;
+    const slideInterval = 4000; // 4 seconds per slide
+
+    function nextSlide() {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % totalSlides;
+        slides[currentSlide].classList.add('active');
+    }
+
+    // Auto-advance slides
+    setInterval(nextSlide, slideInterval);
+}
 
 // Toggle Chat
 function toggleChat() {
