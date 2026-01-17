@@ -1507,28 +1507,32 @@ footer {
 /* --- Payment Methods Badges --- */
 .payment-methods {
     display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
     margin: 20px 0;
-    padding: 20px;
+    padding: 15px;
     background-color: #f9f9f9;
     border-radius: var(--radius-sm);
+    overflow-x: auto;
 }
 
 .payment-logo {
-    height: 40px;
-    width: auto;
+    height: 35px;
+    width: 80px;
     object-fit: contain;
-    padding: 8px 12px;
+    padding: 8px;
     background-color: var(--color-white);
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
     transition: transform 0.2s;
+    flex-shrink: 0;
 }
 
 .payment-logo:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12);
 }
 
 
@@ -1536,21 +1540,22 @@ footer {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    padding: 12px 20px;
+    gap: 6px;
+    height: 35px;
+    padding: 0 12px;
     background-color: var(--color-white);
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    font-weight: 700;
-    font-size: 0.9rem;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    font-weight: 600;
+    font-size: 0.8rem;
     transition: transform 0.2s;
-    min-width: 120px;
-    text-align: center;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .payment-badge:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12);
 }
 
 .visa-badge {
