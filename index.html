@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cakes by Mel | Homemade Cakes with Love</title>
+    <meta name="description"
+        content="The most delicious and cutest cakes in Aylesbury. Retro style, homemade taste. Order online!">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Lato:wght@300;400;700&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container navbar">
+            <a href="#home" class="logo">
+                <img src="assets/logo.png" alt="Cakes by Mel Logo">
+                <span>Cakes by Mel</span>
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#pasteles">Cakes</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contacto">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="cart-icon">
+                <i class="fas fa-shopping-bag"></i>
+                <span class="cart-badge">0</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-overlay"></div>
+        <img src="assets/hero-bg.png" alt="Delicious retro cakes" class="hero-bg-img">
+        <div class="container hero-content">
+            <h1>Sweetness with <br> <span class="text-highlight">Retro Style</span></h1>
+            <p>Homemade cakes made with grandma's secret recipes, but with the chic touch you love. Proudly serving
+                Aylesbury!</p>
+            <div class="hero-btns">
+                <a href="#pasteles" class="btn btn-primary">View Menu</a>
+                <a href="#about" class="btn btn-outline">Our Story</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Badges -->
+    <div class="badges">
+        <div class="container badge-grid">
+            <div class="badge-item">
+                <div class="badge-icon"><i class="fas fa-cookie-bite"></i></div>
+                <span>100% Homemade</span>
+            </div>
+            <div class="badge-item">
+                <div class="badge-icon"><i class="fas fa-star"></i></div>
+                <span>Premium Ingredients</span>
+            </div>
+            <div class="badge-item">
+                <div class="badge-icon"><i class="fas fa-truck"></i></div>
+                <span>Aylesbury Delivery</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Products Section -->
+    <section class="products-section" id="pasteles">
+        <div class="container">
+            <h2 class="section-title">Our Favorites</h2>
+            <p class="section-subtitle">Baked fresh every morning, just for you.</p>
+
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-img-wrapper">
+                        <img src="assets/red-velvet.png" alt="Red Velvet Classic" class="product-img">
+                        <div class="card-overlay">
+                            <button class="add-btn-icon" onclick="addToCart('Red Velvet Classic')"><i
+                                    class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Red Velvet Classic</h3>
+                        <p class="product-desc">Soft red sponge with cream cheese frosting.</p>
+                        <div class="price-row">
+                            <span class="product-price">£25.00</span>
+                            <button class="add-btn-text" onclick="addToCart('Red Velvet Classic')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-img-wrapper">
+                        <img src="assets/lemon-pie.png" alt="Lemon Meringue" class="product-img">
+                        <div class="card-overlay">
+                            <button class="add-btn-icon" onclick="addToCart('Lemon Meringue')"><i
+                                    class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Lemon Meringue</h3>
+                        <p class="product-desc">Fresh, citrusy and with a perfect toasted meringue.</p>
+                        <div class="price-row">
+                            <span class="product-price">£22.00</span>
+                            <button class="add-btn-text" onclick="addToCart('Lemon Meringue')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-img-wrapper">
+                        <img src="assets/choco-fudge.png" alt="Choco-Fudge 50s" class="product-img">
+                        <div class="card-overlay">
+                            <button class="add-btn-icon" onclick="addToCart('Choco-Fudge 50s')"><i
+                                    class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Choco-Fudge 50s</h3>
+                        <p class="product-desc">Triple chocolate for true cocoa lovers.</p>
+                        <div class="price-row">
+                            <span class="product-price">£28.00</span>
+                            <button class="add-btn-text" onclick="addToCart('Choco-Fudge 50s')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <div class="product-img-wrapper">
+                        <img src="assets/strawberry-cake.png" alt="Vanilla & Strawberry" class="product-img">
+                        <div class="card-overlay">
+                            <button class="add-btn-icon" onclick="addToCart('Vanilla & Strawberry')"><i
+                                    class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Vanilla & Strawberry</h3>
+                        <p class="product-desc">The infallible classic. Sponge cake and fresh strawberries.</p>
+                        <div class="price-row">
+                            <span class="product-price">£24.00</span>
+                            <button class="add-btn-text" onclick="addToCart('Vanilla & Strawberry')">Add to
+                                Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Chatbot Widget -->
+    <div class="chatbot-widget">
+        <div class="chat-window" id="chatWindow">
+            <div class="chat-header">
+                <div class="chat-title">
+                    <span class="chat-avatar">🤖</span>
+                    <div>
+                        <h4>Fudgy</h4>
+                        <span class="status-dot"></span>
+                    </div>
+                </div>
+                <button class="close-chat" onclick="toggleChat()"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="chat-body">
+                <div class="message bot-message">
+                    Hi! I'm Fudgy 🧁. How can I sweeten your day?
+                </div>
+            </div>
+            <div class="chat-footer">
+                <input type="text" placeholder="Type a message...">
+                <button class="send-btn"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+        <button class="chat-toggle-btn" onclick="toggleChat()">
+            <i class="fas fa-comment-dots"></i>
+        </button>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contacto">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col brand-col">
+                    <h3>Cakes by Mel</h3>
+                    <p>Baking smiles forever. <br>Retro style, modern taste.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Explore</h3>
+                    <ul class="footer-links">
+                        <li><a href="#pasteles">Menu</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#">Delivery Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <p>📍 Aylesbury, UK</p>
+                    <p>📞 +44 123 456 7890</p>
+                    <p>💌 hello@cakesbymel.co.uk</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-x-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Cakes by Mel. All rights reserved.
+        </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
