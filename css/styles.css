@@ -884,6 +884,7 @@ footer {
     color: var(--color-white);
     transform: translateY(-3px);
 }
+
 /* --- Shopping Cart Modal --- */
 .cart-modal {
     position: fixed;
@@ -1454,6 +1455,7 @@ footer {
 
 /* --- Mobile Responsive Updates --- */
 @media (max-width: 900px) {
+
     .about-content,
     .custom-order-content {
         grid-template-columns: 1fr;
@@ -1532,9 +1534,15 @@ footer {
     color: #1A1F71;
 }
 
+
 .payment-icon-group .fab.fa-cc-mastercard {
-    color: #EB001B;
+    background: linear-gradient(90deg, #EB001B 0%, #EB001B 40%, #F79E1B 60%, #F79E1B 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 900;
 }
+
 
 .payment-icon-group .fab.fa-cc-amex {
     color: #006FCF;
