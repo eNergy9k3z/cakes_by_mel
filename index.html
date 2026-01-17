@@ -33,17 +33,40 @@
             <nav>
                 <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
-                    <li><a href="#pasteles">Cakes</a></li>
+                    <li><a href="#productos">Menu</a></li>
                     <li><a href="#about">About</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#testimonials">Reviews</a></li>
+                    <li><a href="#custom-order">Custom Order</a></li>
                     <li><a href="#contacto">Contact</a></li>
                 </ul>
             </nav>
-            <div class="cart-icon">
+            <div class="cart-icon" onclick="toggleCart()">
                 <i class="fas fa-shopping-bag"></i>
-                <span class="cart-badge">0</span>
+                <span class="cart-badge" id="cartCount">0</span>
             </div>
         </div>
     </header>
+
+    <!-- Shopping Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h2><i class="fas fa-shopping-bag"></i> Your Cart</h2>
+                <button class="close-cart" onclick="toggleCart()"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="cart-body" id="cartItems">
+                <p class="empty-cart">Your cart is empty. Start adding delicious treats!</p>
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span id="cartTotal">£0.00</span>
+                </div>
+                <button class="btn btn-primary btn-block" onclick="checkout()">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
@@ -54,8 +77,8 @@
             <p>Homemade cakes made with grandma's secret recipes, but with the chic touch you love. Proudly serving
                 Aylesbury!</p>
             <div class="hero-btns">
-                <a href="#pasteles" class="btn btn-primary">View Menu</a>
-                <a href="#about" class="btn btn-outline">Our Story</a>
+                <a href="#productos" class="btn btn-primary">View Menu</a>
+                <a href="#custom-order" class="btn btn-outline">Custom Order</a>
             </div>
         </div>
     </section>
@@ -75,22 +98,37 @@
                 <div class="badge-icon"><i class="fas fa-truck"></i></div>
                 <span>Aylesbury Delivery</span>
             </div>
+            <div class="badge-item">
+                <div class="badge-icon"><i class="fas fa-heart"></i></div>
+                <span>Made with Love</span>
+            </div>
         </div>
     </div>
 
     <!-- Products Section -->
-    <section class="products-section" id="pasteles">
+    <section class="products-section" id="productos">
         <div class="container">
-            <h2 class="section-title">Our Favorites</h2>
+            <h2 class="section-title">Our Delicious Menu</h2>
             <p class="section-subtitle">Baked fresh every morning, just for you.</p>
 
-            <div class="product-grid">
-                <!-- Product 1 -->
-                <div class="product-card">
+            <!-- Category Filters -->
+            <div class="category-filters">
+                <button class="filter-btn active" onclick="filterProducts('all')">All</button>
+                <button class="filter-btn" onclick="filterProducts('cakes')"><i class="fas fa-birthday-cake"></i>
+                    Cakes</button>
+                <button class="filter-btn" onclick="filterProducts('muffins')"><i class="fas fa-cookie"></i>
+                    Muffins</button>
+                <button class="filter-btn" onclick="filterProducts('cupcakes')"><i class="fas fa-cupcake"></i>
+                    Cupcakes</button>
+            </div>
+
+            <div class="product-grid" id="productGrid">
+                <!-- CAKES -->
+                <div class="product-card" data-category="cakes">
                     <div class="product-img-wrapper">
                         <img src="assets/red-velvet.png" alt="Red Velvet Classic" class="product-img">
                         <div class="card-overlay">
-                            <button class="add-btn-icon" onclick="addToCart('Red Velvet Classic')"><i
+                            <button class="add-btn-icon" onclick="addToCart('Red Velvet Classic', 25.00)"><i
                                     class="fas fa-plus"></i></button>
                         </div>
                     </div>
@@ -99,17 +137,17 @@
                         <p class="product-desc">Soft red sponge with cream cheese frosting.</p>
                         <div class="price-row">
                             <span class="product-price">£25.00</span>
-                            <button class="add-btn-text" onclick="addToCart('Red Velvet Classic')">Add to Cart</button>
+                            <button class="add-btn-text" onclick="addToCart('Red Velvet Classic', 25.00)">Add to
+                                Cart</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Product 2 -->
-                <div class="product-card">
+                <div class="product-card" data-category="cakes">
                     <div class="product-img-wrapper">
                         <img src="assets/lemon-pie.png" alt="Lemon Meringue" class="product-img">
                         <div class="card-overlay">
-                            <button class="add-btn-icon" onclick="addToCart('Lemon Meringue')"><i
+                            <button class="add-btn-icon" onclick="addToCart('Lemon Meringue', 22.00)"><i
                                     class="fas fa-plus"></i></button>
                         </div>
                     </div>
@@ -118,17 +156,17 @@
                         <p class="product-desc">Fresh, citrusy and with a perfect toasted meringue.</p>
                         <div class="price-row">
                             <span class="product-price">£22.00</span>
-                            <button class="add-btn-text" onclick="addToCart('Lemon Meringue')">Add to Cart</button>
+                            <button class="add-btn-text" onclick="addToCart('Lemon Meringue', 22.00)">Add to
+                                Cart</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Product 3 -->
-                <div class="product-card">
+                <div class="product-card" data-category="cakes">
                     <div class="product-img-wrapper">
                         <img src="assets/choco-fudge.png" alt="Choco-Fudge 50s" class="product-img">
                         <div class="card-overlay">
-                            <button class="add-btn-icon" onclick="addToCart('Choco-Fudge 50s')"><i
+                            <button class="add-btn-icon" onclick="addToCart('Choco-Fudge 50s', 28.00)"><i
                                     class="fas fa-plus"></i></button>
                         </div>
                     </div>
@@ -137,17 +175,17 @@
                         <p class="product-desc">Triple chocolate for true cocoa lovers.</p>
                         <div class="price-row">
                             <span class="product-price">£28.00</span>
-                            <button class="add-btn-text" onclick="addToCart('Choco-Fudge 50s')">Add to Cart</button>
+                            <button class="add-btn-text" onclick="addToCart('Choco-Fudge 50s', 28.00)">Add to
+                                Cart</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Product 4 -->
-                <div class="product-card">
+                <div class="product-card" data-category="cakes">
                     <div class="product-img-wrapper">
                         <img src="assets/strawberry-cake.png" alt="Vanilla & Strawberry" class="product-img">
                         <div class="card-overlay">
-                            <button class="add-btn-icon" onclick="addToCart('Vanilla & Strawberry')"><i
+                            <button class="add-btn-icon" onclick="addToCart('Vanilla & Strawberry', 24.00)"><i
                                     class="fas fa-plus"></i></button>
                         </div>
                     </div>
@@ -156,11 +194,297 @@
                         <p class="product-desc">The infallible classic. Sponge cake and fresh strawberries.</p>
                         <div class="price-row">
                             <span class="product-price">£24.00</span>
-                            <button class="add-btn-text" onclick="addToCart('Vanilla & Strawberry')">Add to
+                            <button class="add-btn-text" onclick="addToCart('Vanilla & Strawberry', 24.00)">Add to
                                 Cart</button>
                         </div>
                     </div>
                 </div>
+
+                <!-- MUFFINS -->
+                <div class="product-card" data-category="muffins">
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1607958996333-41aef7caefaa?w=400&h=400&fit=crop"
+                            alt="Blueberry Muffins" class="product-img">
+                        <div class="card-overlay">
+                            <button class="add-btn-icon" onclick="addToCart('Blueberry Muffins (6 pack)', 12.00)"><i
+                                    class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Blueberry Muffins (6 pack)</h3>
+                        <p class="product-desc">Fresh blueberries in every bite. Perfect for breakfast!</p>
+                        <div class="price-row">
+                            <span class="product-price">£12.00</span>
+                            <button class="add-btn-text" onclick="addToCart('Blueberry Muffins (6 pack)', 12.00)">Add to
+                                Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="muffins">
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1607958996333-41aef7caefaa?w=400&h=400&fit=crop"
+                            alt="Chocolate Chip Muffins" class="product-img">
+                        <div class="card-overlay">
+                            <button class="add-btn-icon"
+                                onclick="addToCart('Chocolate Chip Muffins (6 pack)', 12.00)"><i
+                                    class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Chocolate Chip Muffins (6 pack)</h3>
+                        <p class="product-desc">Loaded with melty chocolate chips. Pure indulgence!</p>
+                        <div class="price-row">
+                            <span class="product-price">£12.00</span>
+                            <button class="add-btn-text"
+                                onclick="addToCart('Chocolate Chip Muffins (6 pack)', 12.00)">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CUPCAKES -->
+                <div class="product-card" data-category="cupcakes">
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1587241321921-91a834d82ffc?w=400&h=400&fit=crop"
+                            alt="Vanilla Cupcakes" class="product-img">
+                        <div class="card-overlay">
+                            <button class="add-btn-icon" onclick="addToCart('Vanilla Cupcakes (12 pack)', 18.00)"><i
+                                    class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Vanilla Cupcakes (12 pack)</h3>
+                        <p class="product-desc">Fluffy vanilla cupcakes with swirled buttercream frosting.</p>
+                        <div class="price-row">
+                            <span class="product-price">£18.00</span>
+                            <button class="add-btn-text" onclick="addToCart('Vanilla Cupcakes (12 pack)', 18.00)">Add to
+                                Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="cupcakes">
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1599785209796-786432b228bc?w=400&h=400&fit=crop"
+                            alt="Red Velvet Cupcakes" class="product-img">
+                        <div class="card-overlay">
+                            <button class="add-btn-icon" onclick="addToCart('Red Velvet Cupcakes (12 pack)', 20.00)"><i
+                                    class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Red Velvet Cupcakes (12 pack)</h3>
+                        <p class="product-desc">Mini versions of our famous red velvet cake!</p>
+                        <div class="price-row">
+                            <span class="product-price">£20.00</span>
+                            <button class="add-btn-text" onclick="addToCart('Red Velvet Cupcakes (12 pack)', 20.00)">Add
+                                to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title">About <span class="text-highlight">Mel</span></h2>
+                    <p>Hi, I'm Mel! Baking has been my passion for over 15 years. What started as making birthday cakes
+                        for family has grown into a beloved local bakery.</p>
+                    <p>Every cake, muffin, and cupcake is made from scratch using my grandmother's secret recipes,
+                        combined with modern techniques and premium ingredients.</p>
+                    <p>I believe that every celebration deserves a cake that's as special as the moment itself. That's
+                        why I pour love into every single creation that leaves my kitchen.</p>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <h3>500+</h3>
+                            <p>Happy Customers</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>15+</h3>
+                            <p>Years Experience</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>100%</h3>
+                            <p>Homemade</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=600&h=700&fit=crop"
+                        alt="Mel Baking" class="rounded-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section" id="gallery">
+        <div class="container">
+            <h2 class="section-title">Our <span class="text-highlight">Gallery</span></h2>
+            <p class="section-subtitle">A peek into our sweet creations</p>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img
+                        src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=400&fit=crop"
+                        alt="Gallery 1"></div>
+                <div class="gallery-item"><img
+                        src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=400&h=400&fit=crop"
+                        alt="Gallery 2"></div>
+                <div class="gallery-item"><img
+                        src="https://images.unsplash.com/photo-1565661497-d67e5a9d2f7e?w=400&h=400&fit=crop"
+                        alt="Gallery 3"></div>
+                <div class="gallery-item"><img
+                        src="https://images.unsplash.com/photo-1558312657-b2dead04e843?w=400&h=400&fit=crop"
+                        alt="Gallery 4"></div>
+                <div class="gallery-item"><img
+                        src="https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?w=400&h=400&fit=crop"
+                        alt="Gallery 5"></div>
+                <div class="gallery-item"><img
+                        src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=400&h=400&fit=crop"
+                        alt="Gallery 6"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section" id="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Customers Say</h2>
+            <p class="section-subtitle">Don't just take our word for it!</p>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"The red velvet cake was absolutely divine! Mel made our wedding day
+                        extra special. Highly recommend!"</p>
+                    <div class="testimonial-author">
+                        <strong>Sarah & James</strong>
+                        <span>Wedding Cake</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Best muffins in Aylesbury! I order them every week for my family. The
+                        blueberry ones are our favorite!"</p>
+                    <div class="testimonial-author">
+                        <strong>Emma Thompson</strong>
+                        <span>Regular Customer</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Mel's cakes are a work of art! Not only beautiful but incredibly
+                        delicious. Will definitely order again!"</p>
+                    <div class="testimonial-author">
+                        <strong>David Miller</strong>
+                        <span>Birthday Cake</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom Order Section -->
+    <section class="custom-order-section" id="custom-order">
+        <div class="container">
+            <div class="custom-order-content">
+                <div class="custom-order-text">
+                    <h2 class="section-title">Custom <span class="text-highlight">Orders</span></h2>
+                    <p>Have a special occasion coming up? Let's create something unique together!</p>
+                    <p>Whether it's a wedding, birthday, or corporate event, I can design a custom cake that perfectly
+                        matches your vision.</p>
+                    <ul class="custom-features">
+                        <li><i class="fas fa-check"></i> Personalized designs</li>
+                        <li><i class="fas fa-check"></i> Any flavor combination</li>
+                        <li><i class="fas fa-check"></i> Dietary accommodations</li>
+                        <li><i class="fas fa-check"></i> Free consultation</li>
+                    </ul>
+                </div>
+                <div class="custom-order-form">
+                    <h3>Request a Custom Order</h3>
+                    <form id="customOrderForm">
+                        <input type="text" placeholder="Your Name*" required>
+                        <input type="email" placeholder="Your Email*" required>
+                        <input type="tel" placeholder="Phone Number*" required>
+                        <input type="date" placeholder="Event Date*" required>
+                        <select required>
+                            <option value="">Cake Type*</option>
+                            <option value="wedding">Wedding Cake</option>
+                            <option value="birthday">Birthday Cake</option>
+                            <option value="corporate">Corporate Event</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <textarea rows="4" placeholder="Tell us about your vision..." required></textarea>
+                        <button type="submit" class="btn btn-primary btn-block">Submit Request</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>How far in advance should I order?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>For custom cakes, we recommend ordering at least 2 weeks in advance. For our standard menu
+                            items, 3-5 days notice is perfect!</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>Do you offer delivery?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! We deliver throughout Aylesbury and surrounding areas. Delivery fees vary based on
+                            distance.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>Can you accommodate dietary restrictions?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely! We can create gluten-free, dairy-free, and vegan options. Just let us know your
+                            requirements when ordering.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>What payment methods do you accept?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We accept cash, card payments, and bank transfers. A 50% deposit is required for custom
+                            orders.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-content">
+                <div class="newsletter-text">
+                    <h2>Stay Sweet! 🧁</h2>
+                    <p>Subscribe to get special offers, recipe tips, and first access to new flavors!</p>
+                </div>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
             </div>
         </div>
     </section>
@@ -204,9 +528,10 @@
                 <div class="footer-col">
                     <h3>Explore</h3>
                     <ul class="footer-links">
-                        <li><a href="#pasteles">Menu</a></li>
+                        <li><a href="#productos">Menu</a></li>
                         <li><a href="#about">About Us</a></li>
-                        <li><a href="#">Delivery Policy</a></li>
+                        <li><a href="#custom-order">Custom Orders</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -225,14 +550,13 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="footer-bottom">
-            &copy; 2026 Cakes by Mel. All rights reserved.
-        </div>
+            <div class="footer-bottom">
+                &copy; 2026 Cakes by Mel. All rights reserved.
+            </div>
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script src="js/main_enhanced.js"></script>
 </body>
 
 </html>
