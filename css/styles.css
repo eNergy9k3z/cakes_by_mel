@@ -1099,12 +1099,12 @@ footer {
 
 .filter-btn {
     padding: 12px 25px;
-    border: 2px solid var(--color-primary);
+    border: 2px solid var(--color-accent);
     background-color: var(--color-white);
-    color: var(--color-primary);
+    color: var(--color-accent);
     border-radius: var(--radius-pill);
     cursor: pointer;
-    font-weight: 700;
+    font-weight: 600;
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
