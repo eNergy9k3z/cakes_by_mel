@@ -1,5 +1,10 @@
 // Shopping Cart System
-let cart = [];
+let cart = JSON.parse(localStorage.getItem('cakesbymel_cart')) || [];
+
+// Initialize cart on page load
+document.addEventListener('DOMContentLoaded', function () {
+    updateCart();
+});
 
 // Toggle Chat
 function toggleChat() {
@@ -75,6 +80,9 @@ function updateCart() {
 
     cartItems.innerHTML = cartHTML;
     cartTotal.textContent = `£${total.toFixed(2)}`;
+
+    // Save cart to localStorage
+    localStorage.setItem('cakesbymel_cart', JSON.stringify(cart));
 }
 
 // Update Quantity
@@ -103,10 +111,9 @@ function checkout() {
         return;
     }
 
-    alert('Thank you for your order! We will contact you shortly to confirm your order details.');
-    cart = [];
-    updateCart();
-    toggleCart();
+    // Save cart and redirect to checkout page
+    localStorage.setItem('cakesbymel_cart', JSON.stringify(cart));
+    window.location.href = 'checkout.html';
 }
 
 // Show Notification
