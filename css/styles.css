@@ -1504,70 +1504,99 @@ footer {
     }
 }
 
-/* --- Payment Methods Icons --- */
+/* --- Payment Methods Badges --- */
 .payment-methods {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 15px;
     margin: 20px 0;
     padding: 20px;
     background-color: #f9f9f9;
     border-radius: var(--radius-sm);
 }
 
-.payment-icon-group {
-    display: flex;
+.payment-badge {
+    display: inline-flex;
     align-items: center;
-    gap: 10px;
-    padding: 10px 15px;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 20px;
     background-color: var(--color-white);
-    border-radius: var(--radius-sm);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: transform 0.2s;
+    min-width: 120px;
+    text-align: center;
 }
 
-.payment-icon-group i {
-    font-size: 2rem;
-    color: var(--color-accent);
+.payment-badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-.payment-icon-group .fab.fa-cc-visa {
-    color: #1A1F71;
-}
-
-
-.payment-icon-group .fab.fa-cc-mastercard {
-    background: linear-gradient(90deg, #EB001B 0%, #EB001B 40%, #F79E1B 60%, #F79E1B 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+.visa-badge {
+    background: linear-gradient(135deg, #1A1F71 0%, #2952A3 100%);
+    color: #FFFFFF;
+    letter-spacing: 2px;
+    font-size: 1.1rem;
+    font-family: Arial, sans-serif;
     font-weight: 900;
 }
 
-
-.payment-icon-group .fab.fa-cc-amex {
-    color: #006FCF;
+.mastercard-badge {
+    background: linear-gradient(135deg, #EB001B 0%, #F79E1B 100%);
+    color: #FFFFFF;
+    font-family: Arial, sans-serif;
+    font-weight: 700;
+    text-transform: lowercase;
+    font-size: 1rem;
+    letter-spacing: -0.5px;
 }
 
-.payment-icon-group .fab.fa-cc-discover {
-    color: #FF6000;
+.amex-badge {
+    background: linear-gradient(135deg, #006FCF 0%, #0085CA 100%);
+    color: #FFFFFF;
+    font-family: Arial, sans-serif;
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
 }
 
-.payment-icon-group .fab.fa-cc-paypal {
-    color: #003087;
+.discover-badge {
+    background: linear-gradient(135deg, #FF6000 0%, #FF8833 100%);
+    color: #FFFFFF;
+    font-family: Arial, sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
 }
 
-.payment-icon-group .fas.fa-university {
-    color: #2C3E50;
+.paypal-badge {
+    background: linear-gradient(135deg, #003087 0%, #0070BA 100%);
+    color: #FFFFFF;
+    font-family: Verdana, sans-serif;
+    font-weight: 700;
 }
 
-.payment-icon-group .fas.fa-money-bill-wave {
-    color: #27AE60;
-}
-
-.payment-text {
+.bank-badge {
+    background-color: #2C3E50;
+    color: #FFFFFF;
     font-weight: 600;
-    color: var(--color-text);
-    font-size: 0.95rem;
+}
+
+.bank-badge i {
+    font-size: 1.2rem;
+}
+
+.cash-badge {
+    background-color: #27AE60;
+    color: #FFFFFF;
+    font-weight: 600;
+}
+
+.cash-badge i {
+    font-size: 1.2rem;
 }
 
 .payment-note {
