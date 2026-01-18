@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        body {
+            font-family: 'Lato', Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #FDFBF7;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #E8B4B8 0%, #D35D6E 100%);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .header img {
+            height: 100px;
+            margin-bottom: 15px;
+        }
+
+        .header h1 {
+            color: #ffffff;
+            font-family: 'Abril Fatface', serif;
+            margin: 0;
+            font-size: 28px;
+            letter-spacing: 1px;
+        }
+
+        .content {
+            padding: 40px 30px;
+            color: #4A3B32;
+        }
+
+        .greeting {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #D35D6E;
+        }
+
+        .order-details {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+
+        .order-details td {
+            padding: 12px 10px;
+            border-bottom: 1px solid #FDFBF7;
+        }
+
+        .label {
+            font-weight: bold;
+            color: #7D6E65;
+            width: 150px;
+        }
+
+        .footer {
+            background-color: #f9f9f9;
+            padding: 30px;
+            text-align: center;
+            color: #7D6E65;
+            font-size: 14px;
+            border-top: 1px solid #eeeeee;
+        }
+
+        .social-icons {
+            margin: 20px 0;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #D35D6E;
+            color: #ffffff !important;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .payment-methods {
+            font-size: 12px;
+            color: #acacac;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <!-- Replace with your hosted logo URL -->
+            <img src="https://cakesbymel.co.uk/assets/logo.png" alt="Cakes by Mel Logo">
+            <h1>Cakes by Mel</h1>
+        </div>
+
+        <div class="content">
+            <div class="greeting">✨ Magical Request Received!</div>
+            <p>Hi {{user_name}},</p>
+            <p>Thank you for reaching out to us! We've received your request for a custom cake and we're already
+                dreaming up something sweet for you.</p>
+
+            <h3 style="border-bottom: 2px solid #E8B4B8; padding-bottom: 5px; margin-top: 30px;">Order Details</h3>
+            <table class="order-details">
+                <tr>
+                    <td class="label">Client Name:</td>
+                    <td>{{user_name}}</td>
+                </tr>
+                <tr>
+                    <td class="label">Event Date:</td>
+                    <td>{{event_date}}</td>
+                </tr>
+                <tr>
+                    <td class="label">Cake Type:</td>
+                    <td>{{cake_type}}</td>
+                </tr>
+                <tr>
+                    <td class="label">Phone:</td>
+                    <td>{{user_phone}}</td>
+                </tr>
+                <tr>
+                    <td class="label">Vision:</td>
+                    <td>{{message}}</td>
+                </tr>
+            </table>
+
+            <p><strong>Next Steps:</strong> Mel will review your details and contact you within 24 hours via phone or
+                email to discuss pricing and design specifics.</p>
+
+            <div style="text-align: center;">
+                <a href="https://cakesbymel.co.uk" class="btn">Visit Our Website</a>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p><strong>Cakes by Mel</strong><br>
+                📍 Aylesbury, UK<br>
+                📞 +44 123 456 7890 | 💌 hello@cakesbymel.co.uk</p>
+
+            <div class="social-icons">
+                <a href="#">Instagram</a> | <a href="#">TikTok</a> | <a href="#">Facebook</a>
+            </div>
+
+            <div class="payment-methods">
+                We accept: Visa, Mastercard, PayPal, and Bank Transfer
+            </div>
+
+            <p style="font-size: 10px; margin-top: 20px; opacity: 0.6;">&copy; 2026 Cakes by Mel. All rights reserved.
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

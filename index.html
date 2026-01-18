@@ -19,6 +19,14 @@
 
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("YOUR_PUBLIC_KEY"); // Esto lo cambiaremos luego
+        })();
+    </script>
 </head>
 
 <body>
@@ -402,19 +410,24 @@
                 <div class="custom-order-form">
                     <h3>Request a Custom Order</h3>
                     <form id="customOrderForm">
-                        <input type="text" placeholder="Your Name*" required>
-                        <input type="email" placeholder="Your Email*" required>
-                        <input type="tel" placeholder="Phone Number*" required>
-                        <input type="date" placeholder="Event Date*" required>
-                        <select required>
+                        <input type="text" name="user_name" id="order_name" placeholder="Your Name*" required>
+                        <input type="email" name="user_email" id="order_email" placeholder="Your Email*" required>
+                        <input type="tel" name="user_phone" id="order_phone" placeholder="Phone Number*" required>
+                        <input type="date" name="event_date" id="order_date" placeholder="Event Date*" required>
+                        <select name="cake_type" id="order_type" required>
                             <option value="">Cake Type*</option>
                             <option value="wedding">Wedding Cake</option>
                             <option value="birthday">Birthday Cake</option>
                             <option value="corporate">Corporate Event</option>
                             <option value="other">Other</option>
                         </select>
-                        <textarea rows="4" placeholder="Tell us about your vision..." required></textarea>
-                        <button type="submit" class="btn btn-primary btn-block">Submit Request</button>
+                        <textarea name="message" id="order_message" rows="4" placeholder="Tell us about your vision..."
+                            required></textarea>
+                        <button type="submit" class="btn btn-primary btn-block" id="submitOrderBtn">
+                            <span class="btn-text">Submit Request</span>
+                            <span class="btn-loader" style="display: none;"><i class="fas fa-spinner fa-spin"></i>
+                                Sending...</span>
+                        </button>
                     </form>
                 </div>
             </div>
@@ -565,6 +578,20 @@
             </div>
         </div>
     </footer>
+
+    <!-- Custom Order Success Modal -->
+    <div id="orderSuccessModal" class="modal">
+        <div class="modal-content text-center">
+            <div class="success-icon" style="color: var(--color-accent); font-size: 4rem; margin-bottom: 20px;">
+                <i class="fas fa-magic"></i>
+            </div>
+            <h2 style="font-family: var(--font-heading); color: var(--color-accent); margin-bottom: 15px;">Magical
+                Request Received!</h2>
+            <p style="margin-bottom: 25px;">Thank you for choosing <strong>Cakes by Mel</strong>. We've sent a
+                confirmation to your email. Mel will review your vision and contact you within 24 hours.</p>
+            <button onclick="closeSuccessModal()" class="btn btn-primary">Sweet, Thanks!</button>
+        </div>
+    </div>
 
     <script src="js/main_enhanced.js"></script>
 </body>
