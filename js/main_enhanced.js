@@ -324,7 +324,7 @@ if (newsletterForm) {
 
         // Use a different Template ID for your Newsletter in EmailJS
         // Replace 'YOUR_NEWSLETTER_TEMPLATE_ID' when you have it
-        emailjs.sendForm('service_3owats9', 'YOUR_NEWSLETTER_TEMPLATE_ID', this)
+        emailjs.sendForm('service_3owats9', 'template_m7vjuff', this)
             .then(function () {
                 showNotification('Thanks for subscribing! Check your email for special offers! 💌');
                 newsletterForm.reset();
