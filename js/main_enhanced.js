@@ -276,10 +276,10 @@ function getBotResponse(userMessage) {
 
     // 7. General Greetings
     if (lowerMessage.includes('hello') || lowerMessage.includes('hi') || lowerMessage.includes('hey')) {
-        return "Hello! I'm Fudgy 🧁, your sweet assistant. How can I help you today?";
+        return "Hello! I'm Penny 🍒, your sweet assistant. How can I help you today?";
     }
     if (lowerMessage.includes('who are you') || lowerMessage.includes('mel')) {
-        return "I'm Fudgy, Mel's assistant! Mel is the master baker behind these amazing treats with over 15 years of experience! 👩‍🍳";
+        return "I'm Penny, Mel's assistant! Mel is the master baker behind these amazing treats with over 15 years of experience! 👩‍🍳";
     }
     if (lowerMessage.includes('thanks') || lowerMessage.includes('thank you')) {
         return "You're very welcome! Let me know if you need anything else to make your day sweeter. 😊";
