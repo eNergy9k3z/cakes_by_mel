@@ -272,7 +272,7 @@ if (customOrderForm) {
         // NOTE: In a real environment, you need to replace "YOUR_SERVICE_ID" and "YOUR_TEMPLATE_ID"
         // with your actual EmailJS IDs from their dashboard.
 
-        emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+        emailjs.sendForm('service_3owats9', 'template_y4ktfut', this)
             .then(function () {
                 // Success
                 btnText.style.display = 'inline-block';
