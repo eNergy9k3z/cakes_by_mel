@@ -253,7 +253,7 @@ function getBotResponse(userMessage) {
         return "Our cupcakes start at £18 per dozen, cakes from £22, and dessert boxes from £15! Check our menu section for full details. 💰";
     }
     if (lowerMessage.includes('flavor') || lowerMessage.includes('flavour') || lowerMessage.includes('menu')) {
-        return "We have amazing Red Velvet, Chocolate Fudge, Salted Caramel, Cookies & Cream, and more! Check our menu for the full list including our new Desserts section. 🍰";
+        return "We have amazing Red Velvet, Chocolate Fudge, Salted Caramel, Cookies & Cream, Carrot Cake, Pistachio, Coffee & Walnut, Hummingbird, and Passion Fruit! Check our menu for the full list including our new Desserts section. 🍰";
     }
     if (lowerMessage.includes('muffin') || lowerMessage.includes('cupcake')) {
         return "Our muffins and cupcakes (like our new Salted Caramel ones!) are baked fresh every morning! We have various packs of 6 or 12. 🧁";
