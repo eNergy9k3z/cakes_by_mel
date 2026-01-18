@@ -240,6 +240,36 @@ function showConfirmation(orderData) {
     document.getElementById('confirmTotal').textContent = `£${orderData.totals.total.toFixed(2)}`;
 
     document.getElementById('confirmationModal').classList.add('active');
+
+    // Save to Google Sheets
+    saveOrderToSheets(orderData);
+}
+
+// Function to save order to Google Sheets
+function saveOrderToSheets(orderData) {
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbySw65yZyLT7QlySQIiUPfLUi8Ueiak0UrhQvHRejmFMVABYu5wAF7QuezbpXETwtOM/exec';
+
+    // Prepare items string
+    const itemsList = orderData.items.map(item => `${item.name} (x${item.quantity})`).join(', ');
+
+    // Create FormData object
+    const formData = new FormData();
+    formData.append('order_ref', orderData.reference);
+    formData.append('customer_name', `${orderData.customer.firstName} ${orderData.customer.lastName}`);
+    formData.append('email', orderData.customer.email);
+    formData.append('phone', orderData.customer.phone);
+    formData.append('delivery_type', orderData.delivery.type);
+    formData.append('address', `${orderData.delivery.address}, ${orderData.delivery.city}, ${orderData.delivery.postcode}`);
+    formData.append('items_list', itemsList);
+    formData.append('total_amount', `£${orderData.totals.total.toFixed(2)}`);
+
+    fetch(scriptURL, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: formData
+    })
+        .then(() => console.log('Store order saved to Google Sheets'))
+        .catch(error => console.error('Error saving store order:', error));
 }
 
 // Close modal on outside click
