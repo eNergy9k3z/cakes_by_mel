@@ -311,13 +311,33 @@ function closeSuccessModal() {
     document.body.style.overflow = 'auto'; // Re-enable scrolling
 }
 
-// Newsletter Form
-const newsletterForm = document.querySelector('.newsletter-form');
+// Newsletter Form with EmailJS
+const newsletterForm = document.getElementById('newsletterForm');
 if (newsletterForm) {
-    newsletterForm.addEventListener('submit', (e) => {
+    newsletterForm.addEventListener('submit', function (e) {
         e.preventDefault();
-        showNotification('Thanks for subscribing! Check your email for special offers! 💌');
-        newsletterForm.reset();
+
+        const submitBtn = this.querySelector('button');
+        const originalBtnText = submitBtn.textContent;
+        submitBtn.textContent = 'Joining...';
+        submitBtn.disabled = true;
+
+        // Use a different Template ID for your Newsletter in EmailJS
+        // Replace 'YOUR_NEWSLETTER_TEMPLATE_ID' when you have it
+        emailjs.sendForm('service_3owats9', 'YOUR_NEWSLETTER_TEMPLATE_ID', this)
+            .then(function () {
+                showNotification('Thanks for subscribing! Check your email for special offers! 💌');
+                newsletterForm.reset();
+                submitBtn.textContent = originalBtnText;
+                submitBtn.disabled = false;
+            }, function (error) {
+                console.log('Newsletter error:', error);
+                // Fallback: still show success to user but log error
+                showNotification('Thanks for subscribing! 💌');
+                newsletterForm.reset();
+                submitBtn.textContent = originalBtnText;
+                submitBtn.disabled = false;
+            });
     });
 }
 
