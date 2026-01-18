@@ -229,21 +229,64 @@ function addMessage(text, sender) {
 function getBotResponse(userMessage) {
     const lowerMessage = userMessage.toLowerCase();
 
-    if (lowerMessage.includes('price') || lowerMessage.includes('cost')) {
-        return "Our cakes start from £22! Check out our menu for full pricing. 🎂";
-    } else if (lowerMessage.includes('delivery')) {
-        return "We deliver throughout Aylesbury! Delivery fees vary based on distance. 🚚";
-    } else if (lowerMessage.includes('order') || lowerMessage.includes('custom')) {
-        return "You can place a custom order through our Custom Order form! Scroll down to find it. ✨";
-    } else if (lowerMessage.includes('muffin')) {
-        return "Our muffins are freshly baked daily! We have blueberry and chocolate chip varieties. 🧁";
-    } else if (lowerMessage.includes('hello') || lowerMessage.includes('hi')) {
-        return "Hello! 👋 How can I help you today?";
-    } else if (lowerMessage.includes('thanks') || lowerMessage.includes('thank you')) {
-        return "You're welcome! Have a sweet day! 😊";
-    } else {
-        return "That sounds yummy! 🍰 Feel free to check our menu or ask me anything else!";
+    // 1. Contact & Social Media
+    if (lowerMessage.includes('phone') || lowerMessage.includes('call') || lowerMessage.includes('number')) {
+        return "You can call us at +44 7947 868547. Mel would love to chat! 📞";
     }
+    if (lowerMessage.includes('email') || lowerMessage.includes('mail') || lowerMessage.includes('contact')) {
+        return "Our email is melaniebalza171@gmail.com. We usually respond within 24 hours! 💌";
+    }
+    if (lowerMessage.includes('instagram') || lowerMessage.includes('tiktok') || lowerMessage.includes('social')) {
+        return "Follow us on Instagram and TikTok @CakesByMel for more sweet content! 📸✨";
+    }
+
+    // 2. Location & Delivery
+    if (lowerMessage.includes('where') || lowerMessage.includes('location') || lowerMessage.includes('address') || lowerMessage.includes('aylesbury')) {
+        return "We are based in Aylesbury, UK! 📍 We offer local delivery or you can collect your orders from us.";
+    }
+    if (lowerMessage.includes('delivery')) {
+        return "We deliver throughout the Aylesbury area! Delivery fee is only £5, or FREE if you collect. 🚚";
+    }
+
+    // 3. Products & Flavors
+    if (lowerMessage.includes('price') || lowerMessage.includes('cost') || lowerMessage.includes('expensive')) {
+        return "Our cupcakes start at £18 per dozen, and cakes from £22! Check our menu section for full details. 💰";
+    }
+    if (lowerMessage.includes('flavor') || lowerMessage.includes('flavour') || lowerMessage.includes('menu')) {
+        return "We have amazing Red Velvet, Chocolate Fudge, Lemon Pie, and Blueberry flavors! Check our menu for the full list. 🍰";
+    }
+    if (lowerMessage.includes('muffin') || lowerMessage.includes('cupcake')) {
+        return "Our muffins and cupcakes are baked fresh every morning! We have various packs of 6 or 12. 🧁";
+    }
+
+    // 4. Custom Orders
+    if (lowerMessage.includes('custom') || lowerMessage.includes('design') || lowerMessage.includes('wedding') || lowerMessage.includes('birthday')) {
+        return "We specialize in custom cakes for any occasion! Scroll down to the 'Custom Order' section to send Mel your vision. ✨🎂";
+    }
+
+    // 5. Dietary & Allergies
+    if (lowerMessage.includes('vegan') || lowerMessage.includes('gluten') || lowerMessage.includes('allergy') || lowerMessage.includes('allergic')) {
+        return "We can accommodate most dietary needs! Please contact us directly or mention it in your custom order request so we can take care of you. 🌱";
+    }
+
+    // 6. Payments
+    if (lowerMessage.includes('pay') || lowerMessage.includes('cash') || lowerMessage.includes('card') || lowerMessage.includes('bank')) {
+        return "We accept PayPal, Credit/Debit cards, Bank Transfers, and even Cash on collection! 💳💵";
+    }
+
+    // 7. General Greetings
+    if (lowerMessage.includes('hello') || lowerMessage.includes('hi') || lowerMessage.includes('hey')) {
+        return "Hello! I'm Fudgy 🧁, your sweet assistant. How can I help you today?";
+    }
+    if (lowerMessage.includes('who are you') || lowerMessage.includes('mel')) {
+        return "I'm Fudgy, Mel's assistant! Mel is the master baker behind these amazing treats with over 15 years of experience! 👩‍🍳";
+    }
+    if (lowerMessage.includes('thanks') || lowerMessage.includes('thank you')) {
+        return "You're very welcome! Let me know if you need anything else to make your day sweeter. 😊";
+    }
+
+    // Default response
+    return "That sounds interesting! 🍰 For specific details, feel free to check our menu or send us a message via the Custom Order form!";
 }
 
 sendBtn.addEventListener('click', sendMessage);
