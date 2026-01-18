@@ -22,21 +22,17 @@
 
         .header {
             background: linear-gradient(135deg, #E8B4B8 0%, #D35D6E 100%);
-            padding: 40px 20px;
+            padding: 50px 20px;
             text-align: center;
-        }
-
-        .header img {
-            height: 100px;
-            margin-bottom: 15px;
         }
 
         .header h1 {
             color: #ffffff;
             font-family: 'Abril Fatface', serif;
             margin: 0;
-            font-size: 28px;
-            letter-spacing: 1px;
+            font-size: 36px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
         .content {
@@ -85,11 +81,13 @@
             display: inline-block;
             margin: 0 10px;
             text-decoration: none;
+            color: #D35D6E;
+            font-weight: bold;
         }
 
         .btn {
             display: inline-block;
-            padding: 12px 25px;
+            padding: 14px 30px;
             background-color: #D35D6E;
             color: #ffffff !important;
             text-decoration: none;
@@ -108,10 +106,8 @@
 
 <body>
     <div class="container">
+        <!-- Header sin imagen, solo texto estilizado -->
         <div class="header">
-            <!-- Real public logo URL -->
-            <img src="https://raw.githubusercontent.com/eNergy9k3z/cakes_by_mel/main/Moms_Cakes_Web/assets/logo.png"
-                alt="Cakes by Mel Logo">
             <h1>Cakes by Mel</h1>
         </div>
 
@@ -121,7 +117,8 @@
             <p>Thank you for reaching out to us! We've received your request for a custom cake and we're already
                 dreaming up something sweet for you.</p>
 
-            <h3 style="border-bottom: 2px solid #E8B4B8; padding-bottom: 5px; margin-top: 30px;">Order Details</h3>
+            <h3 style="border-bottom: 2px solid #E8B4B8; padding-bottom: 5px; margin-top: 30px; color: #4A3B32;">Order
+                Details</h3>
             <table class="order-details">
                 <tr>
                     <td class="label">Client Name:</td>
