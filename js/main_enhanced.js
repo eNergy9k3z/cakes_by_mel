@@ -311,7 +311,7 @@ function closeSuccessModal() {
     document.body.style.overflow = 'auto'; // Re-enable scrolling
 }
 
-// Newsletter Form with EmailJS
+// Newsletter Form with EmailJS and Google Sheets
 const newsletterForm = document.getElementById('newsletterForm');
 if (newsletterForm) {
     newsletterForm.addEventListener('submit', function (e) {
@@ -319,11 +319,24 @@ if (newsletterForm) {
 
         const submitBtn = this.querySelector('button');
         const originalBtnText = submitBtn.textContent;
+        const formData = new FormData(this);
+        const userEmail = formData.get('user_email');
+
         submitBtn.textContent = 'Joining...';
         submitBtn.disabled = true;
 
-        // Use a different Template ID for your Newsletter in EmailJS
-        // Replace 'YOUR_NEWSLETTER_TEMPLATE_ID' when you have it
+        // 1. Send to Google Sheets
+        const googleSheetsUrl = 'https://script.google.com/macros/s/AKfycbyFBfHFyq-ZEXFvP3rHTQrz2PNaqi44Tt0V9r4VD48g5NdTidXkLW7lLidHAg4Fiokf/exec';
+
+        fetch(googleSheetsUrl, {
+            method: 'POST',
+            mode: 'no-cors', // Required for Google Scripts
+            body: formData
+        }).then(() => {
+            console.log('Successfully saved to Google Sheets');
+        }).catch(err => console.error('Error saving to Google Sheets:', err));
+
+        // 2. Send Email Notification via EmailJS
         emailjs.sendForm('service_3owats9', 'template_m7vjuff', this)
             .then(function () {
                 showNotification('Thanks for subscribing! Check your email for special offers! 💌');
@@ -332,7 +345,6 @@ if (newsletterForm) {
                 submitBtn.disabled = false;
             }, function (error) {
                 console.log('Newsletter error:', error);
-                // Fallback: still show success to user but log error
                 showNotification('Thanks for subscribing! 💌');
                 newsletterForm.reset();
                 submitBtn.textContent = originalBtnText;
