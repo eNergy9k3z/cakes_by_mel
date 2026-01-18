@@ -1,5 +1,5 @@
 // Shopping Cart System
-let cart = JSON.parse(localStorage.getItem('cakesbymel_cart')) || [];
+let cart = JSON.parse(localStorage.getItem('antigravity_cart')) || [];
 
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', function () {
@@ -102,7 +102,7 @@ function updateCart() {
     cartTotal.textContent = `£${total.toFixed(2)}`;
 
     // Save cart to localStorage
-    localStorage.setItem('cakesbymel_cart', JSON.stringify(cart));
+    localStorage.setItem('antigravity_cart', JSON.stringify(cart));
 }
 
 // Update Quantity
@@ -132,7 +132,7 @@ function checkout() {
     }
 
     // Save cart and redirect to checkout page
-    localStorage.setItem('cakesbymel_cart', JSON.stringify(cart));
+    localStorage.setItem('antigravity_cart', JSON.stringify(cart));
     window.location.href = 'checkout.html';
 }
 

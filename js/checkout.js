@@ -1,7 +1,7 @@
 // Checkout JavaScript
 
 // Get cart from localStorage
-let cart = JSON.parse(localStorage.getItem('cakesbymel_cart')) || [];
+let cart = JSON.parse(localStorage.getItem('antigravity_cart')) || [];
 let deliveryFee = 0;
 let grandTotal = 0;
 
@@ -199,7 +199,7 @@ function initPayPal() {
                 showConfirmation(orderData);
 
                 // Clear cart
-                localStorage.removeItem('cakesbymel_cart');
+                localStorage.removeItem('antigravity_cart');
 
                 // Send order notification (you would integrate with a backend here)
                 console.log('Order completed:', orderData);
@@ -227,7 +227,7 @@ function submitBankOrder() {
     showConfirmation(orderData);
 
     // Clear cart
-    localStorage.removeItem('cakesbymel_cart');
+    localStorage.removeItem('antigravity_cart');
 
     // Send order notification (you would integrate with a backend here)
     console.log('Order placed (Bank Transfer):', orderData);
