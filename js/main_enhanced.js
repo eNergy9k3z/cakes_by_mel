@@ -250,13 +250,16 @@ function getBotResponse(userMessage) {
 
     // 3. Products & Flavors
     if (lowerMessage.includes('price') || lowerMessage.includes('cost') || lowerMessage.includes('expensive')) {
-        return "Our cupcakes start at £18 per dozen, and cakes from £22! Check our menu section for full details. 💰";
+        return "Our cupcakes start at £18 per dozen, cakes from £22, and dessert boxes from £15! Check our menu section for full details. 💰";
     }
     if (lowerMessage.includes('flavor') || lowerMessage.includes('flavour') || lowerMessage.includes('menu')) {
-        return "We have amazing Red Velvet, Chocolate Fudge, Lemon Pie, and Blueberry flavors! Check our menu for the full list. 🍰";
+        return "We have amazing Red Velvet, Chocolate Fudge, Salted Caramel, Cookies & Cream, and more! Check our menu for the full list including our new Desserts section. 🍰";
     }
     if (lowerMessage.includes('muffin') || lowerMessage.includes('cupcake')) {
-        return "Our muffins and cupcakes are baked fresh every morning! We have various packs of 6 or 12. 🧁";
+        return "Our muffins and cupcakes (like our new Salted Caramel ones!) are baked fresh every morning! We have various packs of 6 or 12. 🧁";
+    }
+    if (lowerMessage.includes('brownie') || lowerMessage.includes('macaron') || lowerMessage.includes('dessert')) {
+        return "Yes! We just added a Desserts section with Fudgy Brownies and Assorted Macarons. They are heavenly! 🍪✨";
     }
 
     // 4. Custom Orders

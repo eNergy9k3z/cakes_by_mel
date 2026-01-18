@@ -133,6 +133,8 @@
                     Muffins</button>
                 <button class="filter-btn" onclick="filterProducts('cupcakes')"><i class="fas fa-cupcake"></i>
                     Cupcakes</button>
+                <button class="filter-btn" onclick="filterProducts('desserts')"><i class="fas fa-cookie"></i>
+                    Desserts</button>
             </div>
 
             <div class="product-grid" id="productGrid">
@@ -213,6 +215,65 @@
                     </div>
                 </div>
 
+                <div class="product-card" data-category="cakes">
+                    <div class="product-img-wrapper">
+                        <img src="assets/victoria-sponge.png" alt="Victoria Sponge Classic" class="product-img">
+                        <div class="card-overlay">
+                            <button class="add-btn-icon" onclick="addToCart('Victoria Sponge Classic', 25.00)"><i
+                                    class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Victoria Sponge Classic</h3>
+                        <p class="product-desc">The British classic: light sponge with strawberry jam and thick cream.
+                        </p>
+                        <div class="price-row">
+                            <span class="product-price">£25.00</span>
+                            <button class="add-btn-text" onclick="addToCart('Victoria Sponge Classic', 25.00)">Add to
+                                Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="cakes">
+                    <div class="product-img-wrapper">
+                        <img src="assets/salted-caramel-cake.png" alt="Salted Caramel Luxury" class="product-img">
+                        <div class="card-overlay">
+                            <button class="add-btn-icon" onclick="addToCart('Salted Caramel Luxury', 30.00)"><i
+                                    class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Salted Caramel Luxury</h3>
+                        <p class="product-desc">Rich caramel sponge with salted caramel drips and golden flakes.</p>
+                        <div class="price-row">
+                            <span class="product-price">£30.00</span>
+                            <button class="add-btn-text" onclick="addToCart('Salted Caramel Luxury', 30.00)">Add to
+                                Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="cakes">
+                    <div class="product-img-wrapper">
+                        <img src="assets/cookies-cream-cake.png" alt="Cookies & Cream" class="product-img">
+                        <div class="card-overlay">
+                            <button class="add-btn-icon" onclick="addToCart('Cookies & Cream', 28.00)"><i
+                                    class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Cookies & Cream</h3>
+                        <p class="product-desc">Velvety white frosting with crushed chocolate cookies and ganache drip.
+                        </p>
+                        <div class="price-row">
+                            <span class="product-price">£28.00</span>
+                            <button class="add-btn-text" onclick="addToCart('Cookies & Cream', 28.00)">Add to
+                                Cart</button>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- MUFFINS -->
                 <div class="product-card" data-category="muffins">
                     <div class="product-img-wrapper">
@@ -253,6 +314,25 @@
                     </div>
                 </div>
 
+                <div class="product-card" data-category="muffins">
+                    <div class="product-img-wrapper">
+                        <img src="assets/double-choco-muffin.png" alt="Double Choco Muffins" class="product-img">
+                        <div class="card-overlay">
+                            <button class="add-btn-icon" onclick="addToCart('Double Choco Muffins (6 pack)', 14.00)"><i
+                                    class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Double Choco Muffins (6 pack)</h3>
+                        <p class="product-desc">Deep chocolate sponge with extra large chocolate chunks.</p>
+                        <div class="price-row">
+                            <span class="product-price">£14.00</span>
+                            <button class="add-btn-text" onclick="addToCart('Double Choco Muffins (6 pack)', 14.00)">Add
+                                to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- CUPCAKES -->
                 <div class="product-card" data-category="cupcakes">
                     <div class="product-img-wrapper">
@@ -288,6 +368,66 @@
                             <span class="product-price">£20.00</span>
                             <button class="add-btn-text" onclick="addToCart('Red Velvet Cupcakes (12 pack)', 20.00)">Add
                                 to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="cupcakes">
+                    <div class="product-img-wrapper">
+                        <img src="assets/salted-caramel-cupcake.png" alt="Salted Caramel Cupcakes" class="product-img">
+                        <div class="card-overlay">
+                            <button class="add-btn-icon"
+                                onclick="addToCart('Salted Caramel Cupcakes (12 pack)', 22.00)"><i
+                                    class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Salted Caramel Cupcakes (12 pack)</h3>
+                        <p class="product-desc">Perfect vanilla base with a tall salted caramel swirl.</p>
+                        <div class="price-row">
+                            <span class="product-price">£22.00</span>
+                            <button class="add-btn-text"
+                                onclick="addToCart('Salted Caramel Cupcakes (12 pack)', 22.00)">Add
+                                to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DESSERTS -->
+                <div class="product-card" data-category="desserts">
+                    <div class="product-img-wrapper">
+                        <img src="assets/fudgy-brownies.png" alt="Fudgy Brownie Box" class="product-img">
+                        <div class="card-overlay">
+                            <button class="add-btn-icon" onclick="addToCart('Fudgy Brownie Box (8pcs)', 15.00)"><i
+                                    class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Fudgy Brownie Box (8pcs)</h3>
+                        <p class="product-desc">Rich, dense, and ultra-chocolatey brownies with a crinkle top.</p>
+                        <div class="price-row">
+                            <span class="product-price">£15.00</span>
+                            <button class="add-btn-text" onclick="addToCart('Fudgy Brownie Box (8pcs)', 15.00)">Add to
+                                Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="desserts">
+                    <div class="product-img-wrapper">
+                        <img src="assets/macarons.png" alt="Assorted Macarons" class="product-img">
+                        <div class="card-overlay">
+                            <button class="add-btn-icon" onclick="addToCart('Assorted Macarons (12pcs)', 20.00)"><i
+                                    class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Assorted Macarons (12pcs)</h3>
+                        <p class="product-desc">Delicate French almond cookies in our favorite seasonal flavors.</p>
+                        <div class="price-row">
+                            <span class="product-price">£20.00</span>
+                            <button class="add-btn-text" onclick="addToCart('Assorted Macarons (12pcs)', 20.00)">Add to
+                                Cart</button>
                         </div>
                     </div>
                 </div>
