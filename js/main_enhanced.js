@@ -268,10 +268,19 @@ if (customOrderForm) {
         btnLoader.style.display = 'inline-block';
         submitOrderBtn.disabled = true;
 
-        // EmailJS implementation
-        // NOTE: In a real environment, you need to replace "YOUR_SERVICE_ID" and "YOUR_TEMPLATE_ID"
-        // with your actual EmailJS IDs from their dashboard.
+        // 1. Send to Google Sheets (Custom Orders)
+        const customOrderSheetsUrl = 'https://script.google.com/macros/s/AKfycbzj_ShBd0vmKneMKs54XQKslXIMHnjt9S3q7kmLrcGBUL-PF3UkOQCJM_2_MWSDn9f2/exec';
+        const formData = new FormData(this);
 
+        fetch(customOrderSheetsUrl, {
+            method: 'POST',
+            mode: 'no-cors',
+            body: formData
+        }).then(() => {
+            console.log('Order successfully saved to Google Sheets');
+        }).catch(err => console.error('Error saving order to Google Sheets:', err));
+
+        // 2. EmailJS implementation
         emailjs.sendForm('service_3owats9', 'template_y4ktfut', this)
             .then(function () {
                 // Success
